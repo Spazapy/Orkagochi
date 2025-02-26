@@ -1,0 +1,15 @@
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\bin\Debug\net9.0\Orkagochi.exe
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\bin\Debug\net9.0\Orkagochi.deps.json
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\bin\Debug\net9.0\Orkagochi.runtimeconfig.json
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\bin\Debug\net9.0\Orkagochi.dll
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\bin\Debug\net9.0\Orkagochi.pdb
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.AssemblyInfoInputs.cache
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.AssemblyInfo.cs
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.csproj.CoreCompileInputs.cache
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.sourcelink.json
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.dll
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\refint\Orkagochi.dll
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.pdb
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\Orkagochi.genruntimeconfig.cache
+C:\Users\nmarc\RiderProjects\Orkagochi\Orkagochi\obj\Debug\net9.0\ref\Orkagochi.dll

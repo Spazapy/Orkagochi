@@ -4,10 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Orka orka = new Orka();
-        orka.Name = "Willy";
-        orka.Age = 12;
+        var orka = new Orka();
+        var food = new Food();
+        var shop = new Shop();
+        var location = new Location();
+        var toy = new Toys();
+        var gameTime = new GameTime();
+        var junk = new Junk();
         
-        Console.WriteLine(orka.Age);
     }
 }

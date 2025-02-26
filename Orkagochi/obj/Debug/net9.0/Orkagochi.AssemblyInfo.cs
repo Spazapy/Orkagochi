@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Orkagochi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb69dd30f1b804b8c962fb1aec13d1125e8affc4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb5b992f5a7da152f942d63918767466ad8f1562")]
 [assembly: System.Reflection.AssemblyProductAttribute("Orkagochi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Orkagochi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

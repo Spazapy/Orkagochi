@@ -7,7 +7,7 @@ public class Orka
     private string name;
     private string baseColor;
     private string patternColor;
-    private string gender;
+    private char gender;
     private int age;
     private string familyGroup;
     private bool reproductiveStatus;
@@ -16,9 +16,9 @@ public class Orka
     
     // Body info
     private int weight;
-    private int length;
-    private int height;
-    private int width;
+    private double length;
+    private double height;
+    private double width;
     private int finSize;
     private int teethCount;
     private int teethSize;
@@ -39,10 +39,10 @@ public class Orka
     private int minTemperatureTolerance;
     
     // Stats
-    private int intelligence;
-    private int agility;
-    private int swimmingSpeed;
-    private int huntingSkill;
+    private int intelligence = 5;
+    private int agility = 5;
+    private int swimmingSpeed = 5;
+    private int huntingSkill = 5;
     private bool knowsEcholocation;
     private FoodType preferedFood;
     private int successRate;
@@ -60,16 +60,16 @@ public class Orka
     public string Name { get => name; set => name = value; }
     public string BaseColor { get => baseColor; set => baseColor = value; }
     public string PatternColor { get => patternColor; set => patternColor = value; }
-    public string Gender { get => gender; set => gender = value; }
+    public char Gender { get => gender; set => gender = value; }
     public int Age { get => age; set => age = value; }
     public string FamilyGroup { get => familyGroup; set => familyGroup = value; }
     public bool ReproductiveStatus { get => reproductiveStatus; set => reproductiveStatus = value; }
     public int Experience { get => experience; set => experience = value; }
     public int Level { get => level; set => level = value; }
     public int Weight { get => weight; set => weight = value; }
-    public int Lenght { get => length; set => length = value; }
-    public int Height { get => height; set => height = value; }
-    public int Width { get => width; set => width = value; }
+    public double Lenght { get => length; set => length = value; }
+    public double Height { get => height; set => height = value; }
+    public double Width { get => width; set => width = value; }
     public int FinSize { get => finSize; set => finSize = value; }
     public int TeethCount { get => teethCount; set => teethCount = value; }
     public int TeethSize { get => teethSize; set => teethSize = value; }
@@ -110,9 +110,30 @@ public class Orka
         Everything
     }
     
+    // Constructor
+
+    public Orka(string name, string baseColor, string patternColor, char gender, int age, int weight, double length, double height, double width, int finSize, int teethCount, int teethSize, int blubberThickness)
+    {
+        this.name = name;
+        this.baseColor = baseColor;
+        this.patternColor = patternColor;
+        this.gender = gender;
+        this.age = age;
+        this.weight = weight;
+        this.length = length;
+        this.height = height;
+        this.width = width;
+        this.finSize = finSize;
+        this.teethCount = teethCount;
+        this.teethSize = teethSize;
+        this.blubberThickness = blubberThickness;
+    }
+
+    
+
     // Methods:
-    
-    
+
+
 
 
 }

@@ -7,7 +7,7 @@ public class Orka
     private string name;
     private string baseColor;
     private string patternColor;
-    private char gender;
+    private string gender;
     private int age;
     private string familyGroup;
     private bool reproductiveStatus;
@@ -60,7 +60,7 @@ public class Orka
     public string Name { get => name; set => name = value; }
     public string BaseColor { get => baseColor; set => baseColor = value; }
     public string PatternColor { get => patternColor; set => patternColor = value; }
-    public char Gender { get => gender; set => gender = value; }
+    public string Gender { get => gender; set => gender = value; }
     public int Age { get => age; set => age = value; }
     public string FamilyGroup { get => familyGroup; set => familyGroup = value; }
     public bool ReproductiveStatus { get => reproductiveStatus; set => reproductiveStatus = value; }
@@ -112,8 +112,9 @@ public class Orka
     
     // Constructor
 
-    public Orka(string name, string baseColor, string patternColor, char gender, int age, int weight, double length, double height, double width, int finSize, int teethCount, int teethSize, int blubberThickness)
+    public Orka(string name, string baseColor, string patternColor, string gender, int age, int weight, double length, double height, double width, int finSize, int teethCount, int teethSize, int blubberThickness)
     {
+        // Base Values
         this.name = name;
         this.baseColor = baseColor;
         this.patternColor = patternColor;
@@ -127,11 +128,49 @@ public class Orka
         this.teethCount = teethCount;
         this.teethSize = teethSize;
         this.blubberThickness = blubberThickness;
+        
+        // Conditions
+        health = 100;
+        energy = 1000;
+        hunger = 0;
+        thirst = 0;
+        happiness = 100;
+        stressLevel = 0;
+        boredom = 0;
+        loneliness = 0;
+        dominance = 10;
+        isLeader = false;
+        
+        // skills and intelligence
+        experience = 0;
+        level = 1;
+        intelligence = 20;
+        agility = 20;
+        swimmingSpeed = 30;
+        huntingSkill = 30;
+        successRate = 50;
+        huntsInGroup = false;
+        socialSkill = 20;
+        knowsEcholocation = false;
+        
+        // Environment
+        maxTemperatureTolerance = 25;
+        minTemperatureTolerance = -2;
+        orcaLocation = 0;
     }
 
     
 
     // Methods:
+    public override string ToString()
+    {
+        return $"Name: {name}, Hauptfarbe: {baseColor}, MusterFarbe: {patternColor}, " +
+               $"Geschlecht: {gender}, Alter: {age}, Gewicht: {weight}kg, Länge: {length}m, "+
+               $"Höhe: {height}, Breite: {width}, Flossengröße: {finSize}m, Zahnanzahl: {teethCount}m, "+
+               $"Zahngröße {teethSize}, Hautschicht: {blubberThickness} mm, Gesundheit: {health}, Energie: {energy}, Hunger: {hunger}, Durst: {thirst}, " +
+               $"Glück: {happiness}, Stresslevel: {stressLevel}, Jagdfähigkeit: {huntingSkill}, " +
+               $"Standort-ID: {orcaLocation}";
+    }
 
 
 

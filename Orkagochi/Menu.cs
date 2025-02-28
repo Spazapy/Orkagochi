@@ -112,38 +112,31 @@ public class Menu
     public void StartNewGame()
     {
         Console.WriteLine("Neues Spiel wird gestartet....");
-        Console.WriteLine("Wie möchtest du deinen Orka bennen? ");
-        string name = Console.ReadLine();
-        Console.WriteLine("Welche Hauptfarbe hat dein Orka?");
-        string baseColor = Console.ReadLine();
-        Console.WriteLine("Welche Musterfarbe hat dein Orka?");
-        string patternColor = Console.ReadLine();
-        Console.WriteLine("Ist dein Orka Männlich oder Weiblich?");
-        string gender = Console.ReadLine();
-        Console.WriteLine("Wie alt ist dein Orka?");
-        int age = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Wie viel wiegt dein Orka?");
-        int weight = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Wie lang ist dein Orka?");
-        double length = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Wie hoch ist dein Orka?");
-        double height = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Wie breit ist dein Orka?");
-        double width = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Was ist die Flossengröße deines Orkas?");
-        int finSize = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Wie viele zähne hat dein Orka?");
-        int teethCount = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Welche Zahngröße hat dein Orka?");
-        int teethSize = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Wie dick ist die Hautschicht deines Orka?");
-        int blubberThickness = Convert.ToInt32(Console.ReadLine());
+        string name = prompt<string>("Wie möchtest du deinen Orka bennen? ");
+        string baseColor = prompt<string>("Welche Hauptfarbe hat dein Orka?");
+        string patternColor = prompt<string>("Welche Musterfarbe hat dein Orka?");
+        string gender = prompt<string>("Ist dein Orka Männlich oder Weiblich?");
+        int age = prompt<int>("Wie alt ist dein Orka?");
+        int weight = prompt<int>("Wie viel wiegt dein Orka?");
+        double length = prompt<double>("Wie lang ist dein Orka?");
+        double height = prompt<double>("Wie hoch ist dein Orka?");
+        double width = prompt<double>("Wie breit ist dein Orka?");
+        int finSize = prompt<int>("Was ist die Flossengröße deines Orkas?");
+        int teethCount = prompt<int>("Wie viele zähne hat dein Orka?");
+        int teethSize = prompt<int>("Welche Zahngröße hat dein Orka?");
+        int blubberThickness = prompt<int>("Wie dick ist die Hautschicht deines Orka?");
         var orka = new Orka(name,baseColor,patternColor,gender,age,weight,length,height,width,finSize,teethCount,teethSize,blubberThickness);
         Console.Clear();
         Console.WriteLine("Dein Orka wurde mit folgenden Attributen erstellt:");
         Console.WriteLine(orka.ToString());
 
         
+    }
+    
+    public t prompt<t>(string prompt)
+    {
+        Console.Write(prompt);
+        return (t)Convert.ChangeType(Console.ReadLine(), typeof(t));
     }
 
     public void LoadGame()

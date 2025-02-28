@@ -133,10 +133,10 @@ public class Menu
         
     }
     
-    public t prompt<t>(string prompt)
+    public generic prompt<generic>(string prompt)
     {
         Console.Write(prompt);
-        return (t)Convert.ChangeType(Console.ReadLine(), typeof(t));
+        return (generic)Convert.ChangeType(Console.ReadLine(), typeof(generic));
     }
 
     public void LoadGame()

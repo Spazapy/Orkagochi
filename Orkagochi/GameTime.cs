@@ -41,7 +41,8 @@ public class GameTime
     // More time factors
     private TimeSpan maxRealTimeDuration;
     private bool speedUpTime;
-
+    
+    // GET & SET:
     public DateTime CurrentTime => currentTime;
     public DateTime StartTime => startTime;
     public TimeSpan ElapsedTime => elapsedTime;

@@ -56,7 +56,7 @@ public class Orka
     private int orcaLocation;
     
     
-    // GET & SET Values: 
+    // GET & SET: 
     public string Name { get => name; set => name = value; }
     public string BaseColor { get => baseColor; set => baseColor = value; }
     public string PatternColor { get => patternColor; set => patternColor = value; }

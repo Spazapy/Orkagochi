@@ -55,6 +55,7 @@ public class Settings
     private float hudScale;
     private string saveGamePath;
     
+    // GET & SET
     public string Language { get => language; set => language = value; }
     public string Difficulty { get => difficulty; set => difficulty = value; }
     public bool AutoSave { get => autoSave; set => autoSave = value; }

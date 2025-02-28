@@ -41,6 +41,7 @@ public class Minigames
     private bool musicEnabled;
     private bool vibrationEnabled;
     
+    // GET & SET
     public int GameID { get => gameID; set => gameID = value; }
     public string Name { get => name; set => name = value; }
     public string GameType { get => gameType; set => gameType = value; }

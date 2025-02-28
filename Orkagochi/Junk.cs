@@ -36,7 +36,7 @@ public class Junk
     private bool potentialDangerToEnviroment;
     private int decomposesln;
     
-    // GET & SET Values:
+    // GET & SET:
     public string Name { get => name; set => name = value; }
     public string Type { get => type; set => type = value; }
     public string Size { get => size; set => size = value; }

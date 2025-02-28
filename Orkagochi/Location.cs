@@ -33,7 +33,7 @@ public class Location
     private string socialStructure;
     private bool territorialConflicts;
     
-    // GET & SET Values:
+    // GET & SET:
     public string Name { get => name; set => name = value; }
     public string Region { get => region; set => region = value; }
     public float Latitude { get => latitude; set => latitude = value; }

@@ -30,7 +30,7 @@ public class Toys
     private bool interactive;
     private bool sound;
 
-    // GET & SET Values:
+    // GET & SET:
     public string Name { get => name; set => name = value; }
     public string Type { get => type; set => type = value; }
     public string Material { get => material; set => material = value; }

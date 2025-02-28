@@ -33,6 +33,7 @@ public class Inventory
     private bool isDroppable;
     private string inventoryState;
     
+    // GET & SET
     public string Owner { get => owner; set => owner = value; }
     public int MaxCapacity { get => maxCapacity; set => maxCapacity = value; }
     public int CurrentCapacity { get => currentCapacity; set => currentCapacity = value; }

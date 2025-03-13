@@ -1,69 +1,76 @@
-﻿namespace Orkagochi;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 
-public class GameTime
+namespace Orkagochi
 {
-    // General Info
-    private DateTime currentTime;
-    private DateTime startTime;
-    private TimeSpan elapsedTime;
-    private int dayCycle;
+    public class GameTime
+    {
+        private DateTime currentTime;
+        private DateTime startTime;
+        private TimeSpan elapsedTime;
+        private int dayCycle;
 
-    // Time mechanics
-    private float timeScale;
-    private bool isDaytime;
-    private int nightCycleDuration;
-    private int dayCycleDuration;
+        // Time mechanics
+        private float timeScale = 1.0f;
+        private bool isDaytime;
+        private int nightCycleDuration = 12;
+        private int dayCycleDuration = 12;
 
-    // Time-based events
-    private int timeToNextEvent;
-    private int eventTimer;
-    private DateTime seasonChangeTime;
-    private int seasonDuration;
+        // Game loop Steuerung
+        private bool isRunning;
+        private Orka orka;
+        private Thread gameThread;
 
-    // Game counter & progress
-    private TimeSpan currentLevelTime;
-    private TimeSpan totalPlayTime;
-    private Dictionary<string, TimeSpan> timeSpentPerTask = new();
+        public GameTime(Orka orka)
+        {
+            this.orka = orka;
+            this.currentTime = DateTime.Now;
+            this.startTime = DateTime.Now;
+            this.elapsedTime = TimeSpan.Zero;
+            this.dayCycle = 0;
+            this.isRunning = false;
+        }
 
-    // User interaction
-    private TimeSpan pauseTime;
-    private bool timePaused;
+        public void StartGameLoop()
+        {
+            isRunning = true;
+            gameThread = new Thread(GameLoop);
+            gameThread.Start();
+        }
 
-    // In-Game Week
-    private int weekNumber;
-    private int monthNumber;
-    private int yearNumber;
+        private void GameLoop()
+        {
+            while (isRunning)
+            {
+                // Aktualisiere die Zeit
+                elapsedTime += TimeSpan.FromMinutes(10 * timeScale); // 10 Minuten pro Tick
+                currentTime = startTime + elapsedTime;
 
-    // Event & Game mechanics
-    private TimeSpan eventCooldown;
-    private TimeSpan timeSinceLastInteraction;
+                // Tag-Nacht prüfen
+                int currentHour = currentTime.Hour;
+                isDaytime = currentHour >= 6 && currentHour < 18;
+                
+                orka.UpdateState();
 
-    // More time factors
-    private TimeSpan maxRealTimeDuration;
-    private bool speedUpTime;
-    
-    // GET & SET:
-    public DateTime CurrentTime => currentTime;
-    public DateTime StartTime => startTime;
-    public TimeSpan ElapsedTime => elapsedTime;
-    public int DayCycle => dayCycle;
-    public float TimeScale => timeScale;
-    public bool IsDaytime => isDaytime;
-    public int NightCycleDuration => nightCycleDuration;
-    public int DayCycleDuration => dayCycleDuration;
-    public int TimeToNextEvent => timeToNextEvent;
-    public int EventTimer => eventTimer;
-    public DateTime SeasonChangeTime => seasonChangeTime;
-    public int SeasonDuration => seasonDuration;
-    public TimeSpan CurrentLevelTime => currentLevelTime;
-    public TimeSpan TotalPlayTime => totalPlayTime;
-    public TimeSpan PauseTime => pauseTime;
-    public bool TimePaused => timePaused;
-    public int WeekNumber => weekNumber;
-    public int MonthNumber => monthNumber;
-    public int YearNumber => yearNumber;
-    public TimeSpan EventCooldown => eventCooldown;
-    public TimeSpan TimeSinceLastInteraction => timeSinceLastInteraction;
-    public TimeSpan MaxRealTimeDuration => maxRealTimeDuration;
-    public bool SpeedUpTime => speedUpTime;
+                // Wartezeit für den nächsten Tick (z. B. 5 Sekunden)
+                Thread.Sleep(2000);
+                
+
+                // Beende die Schleife, wenn der Orka stirbt
+                
+            }
+        }
+
+        public void StopGameLoop()
+        {
+            isRunning = false;
+        }
+        public string GetCurrentGameStatus()
+        {
+            return $"Aktuelle Zeit: {currentTime:HH:mm}\n" +
+                   $"Tag: {isDaytime}\n" +
+                   ($"Name: {orka.Name}, Gesundheit: {orka.Health}, Energie: {orka.Energy}, Hunger: {orka.Hunger}, Durst: {orka.Thirst}, Glück: {orka.Happiness}, Stress-Level: {orka.StressLevel}");
+        }
+    }
 }

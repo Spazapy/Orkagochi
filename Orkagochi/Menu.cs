@@ -2,6 +2,8 @@
 
 public class Menu
 {
+    public static Orka orka;
+    private GameTime gameTime;
     
     // General Info
     
@@ -71,7 +73,6 @@ public class Menu
     public Settings LinkedSettings { get => linkedSettings; set => linkedSettings = value; }
     
     // Methods
-
     public void ShowMainMenu()
     {
         Console.WriteLine("Willkommen im Orkagochi Spiel!");
@@ -82,6 +83,7 @@ public class Menu
         Console.Write("Wähle eine Option: ");
         
         char option = Console.ReadKey().KeyChar;
+        Console.Clear();
         
         SelectMenuOption(option);
     }
@@ -118,18 +120,38 @@ public class Menu
         string gender = prompt<string>("Ist dein Orka Männlich oder Weiblich?");
         int age = prompt<int>("Wie alt ist dein Orka?");
         int weight = prompt<int>("Wie viel wiegt dein Orka?");
-        double length = prompt<double>("Wie lang ist dein Orka?");
+        double lenght = prompt<double>("Wie lang ist dein Orka?");
         double height = prompt<double>("Wie hoch ist dein Orka?");
         double width = prompt<double>("Wie breit ist dein Orka?");
         int finSize = prompt<int>("Was ist die Flossengröße deines Orkas?");
         int teethCount = prompt<int>("Wie viele zähne hat dein Orka?");
         int teethSize = prompt<int>("Welche Zahngröße hat dein Orka?");
         int blubberThickness = prompt<int>("Wie dick ist die Hautschicht deines Orka?");
-        var orka = new Orka(name,baseColor,patternColor,gender,age,weight,length,height,width,finSize,teethCount,teethSize,blubberThickness);
+        orka = new Orka(name, baseColor, patternColor, gender, age, weight, lenght, height, width, finSize,
+            teethCount, teethSize, blubberThickness);
         Console.Clear();
         Console.WriteLine("Dein Orka wurde mit folgenden Attributen erstellt:");
         Console.WriteLine(orka.ToString());
+        Ingame();
 
+        
+    }
+
+    public void Ingame()
+    {
+        GameTime gameTime = new GameTime(orka);
+        gameTime.StartGameLoop();
+        while (orka.Health > 0)
+        {
+            Console.WriteLine("===== Orka-Status =====");
+            Console.WriteLine($"Name: {orka.Name}, Gesundheit: {orka.Health}, Energie: {orka.Energy}, Hunger: {orka.Hunger}, Durst: {orka.Thirst}, Glück: {orka.Happiness}, Stress-Level: {orka.StressLevel}");
+            Console.WriteLine("=======================");
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
+        gameTime.StopGameLoop();
+        Console.WriteLine($"{orka.Name} ist gestorben. Kehre zurück zum Hauptmenü");
+        ShowMainMenu();
         
     }
     

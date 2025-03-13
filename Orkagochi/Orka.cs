@@ -2,6 +2,7 @@
 
 public class Orka
 {
+    public static Food food;
     
     // General Info
     private string name;
@@ -171,6 +172,41 @@ public class Orka
                $"Glück: {happiness}, Stresslevel: {stressLevel}, Jagdfähigkeit: {huntingSkill}, " +
                $"Standort-ID: {orcaLocation}";
     }
+    
+    public void UpdateState()
+    {
+        hunger += 2;
+        thirst += 3;
+        energy -= 1;
+        happiness -= stressLevel / 10;
+        stressLevel += boredom / 5;
+        
+        if (hunger > 80 || thirst > 80)
+        {
+            health -= 5;
+        }
+        
+        if (energy < 20)
+        {
+            isTired = true;
+        }
+        
+    }
+    
+    public void ShowStatus()
+    {
+        Console.Clear(); // Bildschirm leeren, damit es ordentlich aussieht
+        Console.WriteLine("===== Orka-Status =====");
+        Console.WriteLine($"Name: {Name}, Gesundheit: {Health}, Energie: {Energy}, Hunger: {Hunger}, Durst: {Thirst}, Glück: {happiness}, Stress-Level: {StressLevel}");
+        Console.WriteLine("=======================");
+    }
+
+    public void EatFood()
+    {
+        
+    }
+
+
 
 
 

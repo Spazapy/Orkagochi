@@ -190,20 +190,30 @@ public class Orka
         {
             isTired = true;
         }
+
+        if (hunger < 30 && thirst < 20 && health < 100)
+        {
+            health += 5;
+        }
         
     }
     
     public void ShowStatus()
     {
-        Console.Clear(); // Bildschirm leeren, damit es ordentlich aussieht
+        Console.Clear(); 
         Console.WriteLine("===== Orka-Status =====");
         Console.WriteLine($"Name: {Name}, Gesundheit: {Health}, Energie: {Energy}, Hunger: {Hunger}, Durst: {Thirst}, Glück: {happiness}, Stress-Level: {StressLevel}");
         Console.WriteLine("=======================");
     }
 
-    public void EatFood()
+    public void EatFood(Dictionary<int, int> consume, int key)
     {
-        
+        if (consume.ContainsKey(key)) 
+        {
+            energy += consume[key];
+            hunger -= consume[key] / 2;
+            thirst -= consume[key] / 5;
+        }
     }
 
 

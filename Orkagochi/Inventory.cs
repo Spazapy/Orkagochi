@@ -57,5 +57,7 @@ public class Inventory
     public bool IsTradeable { get => isTradeable; set => isTradeable = value; }
     public bool IsDroppable { get => isDroppable; set => isDroppable = value; }
     public string InventoryState { get => inventoryState; set => inventoryState = value; }
+    
+    
 
 }

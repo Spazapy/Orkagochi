@@ -4,6 +4,7 @@ public class Menu
 {
     public static Orka orka;
     private GameTime gameTime;
+    public static Food food;
     
     // General Info
     
@@ -88,6 +89,7 @@ public class Menu
         SelectMenuOption(option);
     }
     
+    
     public void SelectMenuOption(char option)
     {
         switch(option)
@@ -106,7 +108,55 @@ public class Menu
                 break;
             default:
                 Console.WriteLine("Ungültige Option! Bitte versuche es erneut.");
-                ShowMainMenu(); // Menü erneut anzeigen
+                ShowMainMenu(); 
+                break;
+        }
+    }
+    
+    public void OpenGameMenu()
+    {
+        Console.WriteLine("Spiel pausiert");
+        Console.WriteLine("1. Etwas essen");
+        Console.WriteLine("2. Placeholder");
+        Console.WriteLine("3. Einstellungen");
+        Console.WriteLine("4. Status Abfrage");
+        Console.WriteLine("5. Fortsetzen");
+        Console.WriteLine("6. Zurück zum Hauptmenü");
+        Console.Write("Wähle eine Option: ");
+        
+        char option = Console.ReadKey().KeyChar;
+        Console.Clear();
+        
+        SelectGameMenuOption(option);
+    }
+    
+    public void SelectGameMenuOption(char option)
+    {
+        switch(option)
+        {
+            case '1':
+                orka.EatFood(food.Consume,2);
+                break;
+            case '2':
+                break;
+            case '3':
+                OpenSettings();
+                break;
+            case '4':
+                gameTime.GetCurrentGameStatus();
+                break;
+            case '5':
+                gameTime.TogglePause();
+                break;
+            case '6':
+                gameTime.TogglePause();
+                gameTime.StopGameLoop();
+                ShowMainMenu();
+                break;
+            
+            default:
+                Console.WriteLine("Ungültige Option! Bitte versuche es erneut.");
+                OpenGameMenu(); 
                 break;
         }
     }
@@ -139,15 +189,19 @@ public class Menu
 
     public void Ingame()
     {
-        GameTime gameTime = new GameTime(orka);
+        
+        gameTime = new GameTime(orka);
+        food = new Food();
         gameTime.StartGameLoop();
-        while (orka.Health > 0)
+        while (orka.Health > 0 && gameTime.IsRunning())
         {
-            Console.WriteLine("===== Orka-Status =====");
-            Console.WriteLine($"Name: {orka.Name}, Gesundheit: {orka.Health}, Energie: {orka.Energy}, Hunger: {orka.Hunger}, Durst: {orka.Thirst}, Glück: {orka.Happiness}, Stress-Level: {orka.StressLevel}");
-            Console.WriteLine("=======================");
+            orka.ShowStatus();
             Thread.Sleep(1000);
             Console.Clear();
+            if (gameTime.IsPaused() == true)
+            {
+                OpenGameMenu();
+            }
         }
         gameTime.StopGameLoop();
         Console.WriteLine($"{orka.Name} ist gestorben. Kehre zurück zum Hauptmenü");
